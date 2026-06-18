@@ -276,6 +276,796 @@
         </footer>
 
     </div>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高雄港都一日遊｜單車與捷運微旅行</title>
+  <style>
+    :root {
+      --navy: #06223b;
+      --blue: #0e6d9f;
+      --cyan: #36c1d6;
+      --sand: #f7e3bd;
+      --gold: #f4ba43;
+      --orange: #ee7b35;
+      --red: #d94836;
+      --ink: #172436;
+      --muted: #69798a;
+      --paper: #fffdf8;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(9, 33, 54, 0.18);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(54,193,214,.22), transparent 30%),
+        radial-gradient(circle at 88% 4%, rgba(244,186,67,.28), transparent 28%),
+        linear-gradient(180deg, #f3fbff 0%, #fff8ed 46%, #f8fbff 100%);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .page { overflow: hidden; }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      place-items: center;
+      padding: 76px 24px 90px;
+      color: var(--white);
+      isolation: isolate;
+      background:
+        linear-gradient(135deg, rgba(6,34,59,.94), rgba(14,109,159,.82)),
+        radial-gradient(circle at 70% 18%, rgba(244,186,67,.85), transparent 22%);
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .hero::before {
+      width: 680px;
+      height: 680px;
+      right: -260px;
+      top: -210px;
+      background: radial-gradient(circle, rgba(244,186,67,.48), rgba(238,123,53,.2) 42%, transparent 70%);
+    }
+    .hero::after {
+      width: 540px;
+      height: 540px;
+      left: -220px;
+      bottom: -250px;
+      background: radial-gradient(circle, rgba(54,193,214,.42), rgba(255,255,255,.04) 52%, transparent 72%);
+    }
+
+    .hero-inner {
+      width: min(1160px, 100%);
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(14px);
+      font-size: 14px;
+      letter-spacing: .08em;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 22px 0 22px;
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: .95;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+    }
+
+    .hero-title-accent {
+      display: block;
+      color: var(--gold);
+      text-shadow: 0 8px 30px rgba(244,186,67,.22);
+    }
+
+    .hero-lead {
+      max-width: 660px;
+      margin: 0 0 30px;
+      font-size: clamp(18px, 2vw, 23px);
+      color: rgba(255,255,255,.86);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow: 0 18px 36px rgba(0,0,0,.16);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 22px 44px rgba(0,0,0,.22); }
+    .btn-primary { background: linear-gradient(135deg, var(--gold), #ffe090); color: #402400; }
+    .btn-ghost { border: 1px solid rgba(255,255,255,.28); color: var(--white); background: rgba(255,255,255,.08); }
+
+    .hero-card {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .postcard {
+      overflow: hidden;
+      min-height: 460px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.06)),
+        linear-gradient(150deg, #fbd88f 0%, #ee8a45 42%, #0e6d9f 43%, #082846 100%);
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 30px 80px rgba(0,0,0,.24);
+    }
+    .sun {
+      position: absolute;
+      top: 72px;
+      right: 74px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 38% 35%, #fff8c9 0 10%, var(--gold) 34%, #ee7b35 72%);
+      box-shadow: 0 0 80px rgba(244,186,67,.86);
+    }
+    .sea {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 43%;
+      background:
+        repeating-linear-gradient(178deg, rgba(255,255,255,.28) 0 2px, transparent 2px 32px),
+        linear-gradient(180deg, #1286b3, #083752);
+      clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+    }
+    .ship {
+      position: absolute;
+      right: 62px;
+      bottom: 153px;
+      width: 200px;
+      height: 74px;
+      color: #fff;
+      filter: drop-shadow(0 16px 18px rgba(0,0,0,.28));
+    }
+    .ship::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 0;
+      bottom: 0;
+      height: 42px;
+      background: #fff;
+      clip-path: polygon(0 12%, 72% 12%, 100% 42%, 88% 100%, 10% 100%);
+      border-radius: 4px 0 26px 24px;
+    }
+    .ship::after {
+      content: "";
+      position: absolute;
+      left: 64px;
+      bottom: 36px;
+      width: 86px;
+      height: 34px;
+      background: #fff;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 42px 14px 0 -8px #fff;
+    }
+    .bike-route {
+      position: absolute;
+      left: 28px;
+      bottom: 36px;
+      right: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      z-index: 2;
+    }
+    .route-chip {
+      padding: 12px 10px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.87);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(6,34,59,.18);
+    }
+
+    .wave-divider {
+      display: block;
+      width: 100%;
+      height: 78px;
+      margin-top: -76px;
+      position: relative;
+      z-index: 2;
+      color: #fff8ed;
+    }
+
+    main {
+      position: relative;
+      z-index: 3;
+      padding: 0 24px 80px;
+    }
+    .section {
+      width: min(1160px, 100%);
+      margin: 0 auto 80px;
+    }
+
+    .quick-panel {
+      margin-top: -46px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .quick-item {
+      padding: 24px 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(14,109,159,.08);
+      box-shadow: 0 18px 50px rgba(8,40,70,.12);
+    }
+    .quick-item b {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--blue);
+    }
+    .quick-item span { color: var(--muted); font-weight: 700; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--orange);
+      font-weight: 900;
+      letter-spacing: .1em;
+      font-size: 14px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+    .section-desc { max-width: 560px; margin: 0; color: var(--muted); }
+
+    .route-map {
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(14,109,159,.1);
+    }
+    .map-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+    .station {
+      min-height: 126px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      text-align: center;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #fff, #f6fbff);
+      border: 2px solid rgba(14,109,159,.12);
+      box-shadow: inset 0 1px 0 #fff, 0 14px 28px rgba(9,33,54,.08);
+    }
+    .station strong { display: block; font-size: 20px; color: var(--navy); }
+    .station small { display: block; color: var(--muted); font-weight: 700; }
+    .arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(14,109,159,.25);
+    }
+    .return-line {
+      margin-top: 18px;
+      padding: 16px 20px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, rgba(238,123,53,.12), rgba(244,186,67,.16));
+      color: #7a4518;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 88px;
+      top: 18px;
+      bottom: 18px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(var(--cyan), var(--orange));
+    }
+    .stop {
+      position: relative;
+      display: grid;
+      grid-template-columns: 176px 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .time {
+      position: relative;
+      z-index: 1;
+      align-self: start;
+      padding: 16px 12px;
+      border-radius: 18px;
+      text-align: center;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 40px rgba(6,34,59,.18);
+    }
+    .time::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -34px;
+      width: 18px;
+      height: 18px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: var(--gold);
+      border: 5px solid #fffdf8;
+      box-shadow: 0 0 0 3px rgba(244,186,67,.26);
+    }
+    .stop-card {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(14,109,159,.08);
+      box-shadow: 0 16px 44px rgba(9,33,54,.1);
+    }
+    .stop-card h3 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+    }
+    .stop-card p { margin: 8px 0; color: #465568; }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+    .tag {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(14,109,159,.09);
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      min-height: 240px;
+      border-radius: var(--radius-lg);
+      color: #fff;
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+    }
+    .feature-card:nth-child(2) { background: linear-gradient(135deg, #ee7b35, #af3d2e); }
+    .feature-card:nth-child(3) { background: linear-gradient(135deg, #1a8f8a, #06223b); }
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      top: -38px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.13);
+    }
+    .feature-icon { font-size: 42px; line-height: 1; }
+    .feature-card h3 { margin: 20px 0 10px; font-size: 24px; }
+    .feature-card p { margin: 0; color: rgba(255,255,255,.84); }
+
+    .restaurant-wrap {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .note-card,
+    .table-card {
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(14,109,159,.08);
+      box-shadow: 0 16px 44px rgba(9,33,54,.1);
+    }
+    .note-card {
+      padding: 30px;
+      background: linear-gradient(150deg, #fff, #fff3db);
+    }
+    .note-card h3 { margin: 0 0 12px; font-size: 27px; color: #8b4c0f; }
+    .note-card p { margin: 0; color: #66513c; }
+    .table-card { overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 17px 18px; text-align: left; vertical-align: top; }
+    th { background: var(--navy); color: #fff; white-space: nowrap; }
+    td { border-bottom: 1px solid rgba(14,109,159,.1); color: #405065; }
+    tr:last-child td { border-bottom: none; }
+    td:first-child { font-weight: 900; color: var(--ink); }
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .tip {
+      padding: 22px;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 14px 36px rgba(9,33,54,.09);
+      border: 1px solid rgba(14,109,159,.07);
+    }
+    .tip b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--orange);
+      font-size: 18px;
+    }
+    .tip span { color: var(--muted); }
+
+    .cta {
+      width: min(1160px, 100%);
+      margin: 0 auto;
+      padding: 44px;
+      border-radius: var(--radius-xl);
+      color: #fff;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(244,186,67,.5), transparent 32%),
+        linear-gradient(135deg, var(--navy), var(--blue));
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .cta h2 { color: #fff; }
+    .cta p { margin: 12px 0 0; color: rgba(255,255,255,.82); }
+
+    footer {
+      padding: 44px 24px 54px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner,
+      .restaurant-wrap,
+      .cta { grid-template-columns: 1fr; }
+      .quick-panel { grid-template-columns: repeat(2, 1fr); }
+      .map-line { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); justify-self: center; }
+      .cards-grid, .tips { grid-template-columns: repeat(2, 1fr); }
+      .hero { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 52px 18px 88px; }
+      main { padding-inline: 18px; }
+      .hero-card { padding: 14px; }
+      .postcard { min-height: 360px; }
+      .ship { transform: scale(.75); transform-origin: right bottom; }
+      .bike-route { grid-template-columns: repeat(2, 1fr); }
+      .quick-panel, .cards-grid, .tips { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .timeline::before { left: 20px; }
+      .stop { grid-template-columns: 1fr; padding-left: 42px; gap: 12px; }
+      .time { width: fit-content; padding-inline: 16px; }
+      .time::after { left: -31px; right: auto; }
+      .stop-card { padding: 22px; }
+      .route-map, .cta { padding: 24px; border-radius: 24px; }
+      th { display: none; }
+      tr, td { display: block; width: 100%; }
+      tr { border-bottom: 1px solid rgba(14,109,159,.1); }
+      td { border-bottom: none; padding: 10px 18px; }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 2px;
+        color: var(--orange);
+        font-size: 13px;
+        font-weight: 900;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">KAOHSIUNG MINI TRIP · WEEKEND ONLY</span>
+          <h1>高雄港都一日遊<span class="hero-title-accent">單車 × 捷運 × 渡輪</span></h1>
+          <p class="hero-lead">從美麗島站出發，以文青老宅午餐揭開序幕，搭捷運與渡輪前往旗津，再用西子灣落日、駁二夜景與六合夜市，收進最經典的港都假日風景。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#itinerary">查看行程</a>
+            <a class="btn btn-ghost" href="#route">路線總覽</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="高雄港都旅遊插畫">
+          <div class="postcard">
+            <div class="sun"></div>
+            <div class="ship"></div>
+            <div class="sea"></div>
+            <div class="bike-route">
+              <div class="route-chip">美麗島</div>
+              <div class="route-chip">西子灣</div>
+              <div class="route-chip">旗津</div>
+              <div class="route-chip">駁二</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <svg class="wave-divider" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0,34 C190,82 344,96 534,56 C742,12 842,8 1032,42 C1222,76 1326,72 1440,34 L1440,90 L0,90 Z"></path>
+    </svg>
+
+    <main>
+      <section class="section quick-panel" aria-label="行程快速資訊">
+        <div class="quick-item"><b>11:30</b><span>美麗島站集合出發</span></div>
+        <div class="quick-item"><b>3 種</b><span>捷運、YouBike、渡輪</span></div>
+        <div class="quick-item"><b>$350內</b><span>午餐預算友善</span></div>
+        <div class="quick-item"><b>21:00</b><span>六合夜市完美收尾</span></div>
+      </section>
+
+      <section class="section" id="route">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">ROUTE MAP</span>
+            <h2>一張圖看懂港都微旅行路線</h2>
+          </div>
+          <p class="section-desc">以捷運橘線作為主軸，串連旗津渡輪、西子灣濱海單車道與駁二夜間漫步，最後回到美麗島站與六合夜市。</p>
+        </div>
+        <div class="route-map">
+          <div class="map-line">
+            <div class="station"><div><strong>美麗島站</strong><small>光之穹頂／午餐</small></div></div>
+            <div class="arrow">›</div>
+            <div class="station"><div><strong>西子灣站</strong><small>橘線往港邊</small></div></div>
+            <div class="arrow">›</div>
+            <div class="station"><div><strong>鼓山輪渡站</strong><small>渡輪約 5 分鐘</small></div></div>
+            <div class="arrow">›</div>
+            <div class="station"><div><strong>旗津</strong><small>老街／冰品／海島感</small></div></div>
+          </div>
+          <div class="return-line">回程：旗津 ➜ 鼓山輪渡站 ➜ YouBike 濱海單車道 ➜ 西子灣落日 ➜ 駁二藝術特區 ➜ 鹽埕埔站 ➜ 美麗島站</div>
+        </div>
+      </section>
+
+      <section class="section" id="itinerary">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">ONE DAY ITINERARY</span>
+            <h2>從午餐到夜市的 5 段式港都行程</h2>
+          </div>
+          <p class="section-desc">節奏保留彈性，避開正午過度曝曬，讓下午的海島漫遊、傍晚落日與夜間散步都能銜接得剛好。</p>
+        </div>
+
+        <div class="timeline">
+          <article class="stop">
+            <div class="time">11:30–13:30</div>
+            <div class="stop-card">
+              <h3>第一站｜光之穹頂 ➜ 慢活午餐</h3>
+              <p><strong>交通方式：</strong>捷運美麗島站出站後，步行或騎乘 YouBike。</p>
+              <p>從高雄最具代表性的捷運站開始，用老宅餐廳或歐式復古咖啡館，安排一段有空間感、能久坐的舒心午餐。</p>
+              <div class="tag-list"><span class="tag">光之穹頂</span><span class="tag">老宅餐廳</span><span class="tag">步行 10 分鐘內</span></div>
+            </div>
+          </article>
+
+          <article class="stop">
+            <div class="time">13:30–16:30</div>
+            <div class="stop-card">
+              <h3>第二站｜渡輪啟航 ➜ 旗津海島漫遊</h3>
+              <p><strong>交通方式：</strong>從美麗島站搭捷運橘線至西子灣站，步行或騎 YouBike 約 500 公尺到鼓山輪渡站，再搭渡輪至旗津。</p>
+              <p>抵達旗津輪渡站後，旗津老街出站即達。沿路可以補給現烤魷魚、手工地瓜椪，也可找大碗公冰店消暑。</p>
+              <div class="tag-list"><span class="tag">旗津老街</span><span class="tag">渡輪 5 分鐘</span><span class="tag">水果剉冰</span></div>
+            </div>
+          </article>
+
+          <article class="stop">
+            <div class="time">16:30–18:00</div>
+            <div class="stop-card">
+              <h3>第三站｜西子灣大船入港 ➜ 黃金落日</h3>
+              <p><strong>交通方式：</strong>從旗津搭渡輪返回鼓山輪渡站，在碼頭借 YouBike，沿濱海單車道騎乘。</p>
+              <p>西子灣觀海防波堤與英國領事館山腳下，是欣賞夕陽與港口大船入港的絕佳位置。假日傍晚約 6 點半前後，港邊光線最有層次。</p>
+              <div class="tag-list"><span class="tag">西子灣夕陽</span><span class="tag">濱海單車道</span><span class="tag">大船入港</span></div>
+            </div>
+          </article>
+
+          <article class="stop">
+            <div class="time">18:00–19:30</div>
+            <div class="stop-card">
+              <h3>第四站｜彈性備用 ➜ 駁二藝術特區夜間漫步</h3>
+              <p><strong>交通方式：</strong>騎乘 YouBike 順著舊鐵道改建的臨海單車道，吹著海風前往駁二藝術特區。</p>
+              <p>夜晚的駁二少了白天炙熱，點燈後的倉庫群、紅色鞦韆、磚牆燈光與裝置藝術，呈現更適合散步的設計感。</p>
+              <div class="tag-list"><span class="tag">駁二大勇</span><span class="tag">大義倉庫群</span><span class="tag">夜間裝置藝術</span></div>
+            </div>
+          </article>
+
+          <article class="stop">
+            <div class="time">19:30–21:00</div>
+            <div class="stop-card">
+              <h3>第五站｜味蕾饗宴 ➜ 美麗島終點站</h3>
+              <p><strong>交通方式：</strong>於駁二還車後，從捷運鹽埕埔站搭橘線直達美麗島站。</p>
+              <p>六合夜市從美麗島站出站即達。用鹽蒸蝦、海產粥、鐵板燒或木瓜牛奶，為一整天的港都行程畫下完美句點。</p>
+              <div class="tag-list"><span class="tag">六合夜市</span><span class="tag">海產粥</span><span class="tag">木瓜牛奶</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">LUNCH PICKS</span>
+            <h2>美麗島站周邊午餐推薦</h2>
+          </div>
+          <p class="section-desc">兩間皆在步行約 10 分鐘內，兼顧空間氛圍、休息品質與預算。</p>
+        </div>
+        <div class="restaurant-wrap">
+          <div class="note-card">
+            <h3>設計筆記</h3>
+            <p>假日中午氣溫較高，因此午餐安排在美麗島站附近，選擇有空間美感且適合久坐的質感餐廳；預算嚴格控制在 $350 以內，讓行程不用趕路，也能舒心拉開序幕。</p>
+          </div>
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr><th>餐廳名稱</th><th>步行距離</th><th>風格與氛圍</th><th>推薦消費方式</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="餐廳名稱">遙遙相望｜洋食小餐館</td>
+                  <td data-label="步行距離">美麗島站步行約 7 分鐘</td>
+                  <td data-label="風格與氛圍">60 年日式老宅、可遠眺古蹟</td>
+                  <td data-label="推薦消費方式">唐揚雞烤飯糰定食（$290）</td>
+                </tr>
+                <tr>
+                  <td data-label="餐廳名稱">步道咖啡館 Cafe Strada</td>
+                  <td data-label="步行距離">美麗島站步行約 10 分鐘</td>
+                  <td data-label="風格與氛圍">歐式復古、人文氣息濃厚</td>
+                  <td data-label="推薦消費方式">白酒蛤蜊義大利麵（$260）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">HIGHLIGHTS</span>
+            <h2>這趟行程的三個必收畫面</h2>
+          </div>
+        </div>
+        <div class="cards-grid">
+          <article class="feature-card">
+            <div class="feature-icon">⛴️</div>
+            <h3>五分鐘海上轉場</h3>
+            <p>鼓山到旗津的短程渡輪，是最有高雄港味的移動方式，也讓城市旅行瞬間切換成海島風情。</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🌅</div>
+            <h3>西子灣黃金落日</h3>
+            <p>夕陽、海平面與大船入港同框，適合把時間留給傍晚，慢慢等光線變暖。</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🚲</div>
+            <h3>港邊單車微旅行</h3>
+            <p>YouBike 串起輪渡站、西子灣與駁二，沿海風騎乘，節奏比步行更輕盈。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">TRAVEL NOTES</span>
+            <h2>出發前的小提醒</h2>
+          </div>
+        </div>
+        <div class="tips">
+          <div class="tip"><b>電子票證</b><span>捷運與旗津渡輪皆可刷卡，轉乘更順手。</span></div>
+          <div class="tip"><b>防曬補水</b><span>旗津與西子灣日照較強，建議準備水與防曬。</span></div>
+          <div class="tip"><b>YouBike</b><span>輪渡站與駁二周邊可依現場車況彈性借還。</span></div>
+          <div class="tip"><b>落日時間</b><span>建議提早卡位，傍晚光線變化很快。</span></div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div>
+          <span class="section-kicker">READY TO GO</span>
+          <h2>用半天午後，收藏高雄最經典的港都風景。</h2>
+          <p>從美麗島出發，跟著捷運、渡輪與單車，把老宅午餐、旗津小吃、西子灣夕陽、駁二夜景與六合夜市一次串起來。</p>
+        </div>
+        <a class="btn btn-primary" href="#top">回到頁首</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>高雄港都一日遊 · 假日專屬單車與捷運微旅行</p>
+    </footer>
+  </div>
+  <a href="./index.html" style="padding: 10px 20px; background-color: #3182ce; color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin: 20px 0;">
+    切換至GPT版本
+</a>
+</body>
+</html>
 </body>
 </html>
