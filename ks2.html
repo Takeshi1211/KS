@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高雄港都一日遊 ‧ 假日專屬單車與捷運微旅行</title>
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.7;
+            color: #333333;
+            background-color: #fcfbfa;
+        }
+        a {
+            color: #2a6f97;
+            text-decoration: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #e0f2fe 0%, #fef3c7 100%);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        header h1 {
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .route-highlights {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Transit Map Flowchart */
+        .map-flow {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid #014f86;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            color: #014f86;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Timeline / Station Styles */
+        .station-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .station-card:hover {
+            transform: translateY(-2px);
+        }
+        .station-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+        .station-title {
+            font-size: 1.3rem;
+            color: #014f86;
+            font-weight: bold;
+        }
+        
+        /* Method of Transport Badge */
+        .transport-badge {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* Table Design */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Design Notes / Quotes */
+        .design-note {
+            background-color: #fffbeb;
+            border-left: 4px solid #d97706;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: #b45309;
+            font-style: italic;
+        }
+
+        /* Spots List */
+        .spots-list {
+            list-style-type: none;
+        }
+        .spots-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        .spots-list li::before {
+            content: "•";
+            color: #01a3a4;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        .spot-name {
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>高雄港都一日遊 ‧ 假日專屬單車與捷運微旅行</h1>
+            <div class="route-highlights">
+                📅 路線亮點：文青老宅午餐 ➔ 旗津海島風情 ➔ 西子灣大船落日 ➔ 駁二夜間漫步 ➔ 經典六合夜市
+            </div>
+        </header>
+
+        <div class="map-flow">[美麗島站] ➔ 捷運橘線 ➔ [西子灣站] ➔ 渡輪 ➔ [旗津]
+   ▲                                            │
+   └──────── 捷運橘線 ──────── [鹽埕埔站/駁二] ◄───┘</div>
+
+        <div class="station-card">
+            <div class="station-header">
+                <div class="station-title">📍 第一站：11:30 – 13:30 【光之穹頂 ➔ 慢活午餐】</div>
+            </div>
+            <div class="transport-badge">🚗 交通方式：捷運美麗島站 出站後，步行或騎乘 YouBike</div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>餐廳名稱</th>
+                        <th>步行距離</th>
+                        <th>風格與氛圍</th>
+                        <th>推薦消費方式</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="spot-name">遥遥相望｜洋食小餐馆</td>
+                        <td>美麗島站步行約 7 分鐘</td>
+                        <td>60年日式老宅、可遠眺古蹟</td>
+                        <td>唐揚雞烤飯糰定食 ($290)</td>
+                    </tr>
+                    <tr>
+                        <td class="spot-name">步道咖啡館 Cafe Strada</td>
+                        <td>美麗島站步行約 10 分鐘</td>
+                        <td>歐式復古、人文氣息濃厚</td>
+                        <td>白酒蛤蜊義大利麵 ($260)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="design-note">
+                🗺️ <strong>設計筆記：</strong> 假日中午氣溫較高，特別挑選這兩家走路10分鐘內、充滿空間美感且適合久坐、預算嚴格控制在 $350 以內的質感餐廳，讓您舒心地拉開行程序幕。
+            </div>
+        </div>
+
+        <div class="station-card">
+            <div class="station-header">
+                <div class="station-title">📍 第二站：13:30 – 16:30 【渡輪啟航 ➔ 旗津海島漫遊】</div>
+            </div>
+            <div class="transport-badge">
+                🚗 交通方式：從餐廳回到捷運美麗島站，搭乘捷運橘線往西子灣方向。於西子灣站 1 號出口出站，步行或騎 YouBike 約 500 公尺至鼓山輪渡站，搭乘渡輪至旗津輪渡站（航程約 5 分鐘，可刷電子票證）。
+            </div>
+            <ul class="spots-list">
+                <li><span class="spot-name">旗津老街：</span> 出站即達，體驗傳統海港市集。</li>
+                <li><span class="spot-name">點心補給站：</span> 沿街品嚐現烤魷魚、手工地瓜椪。</li>
+                <li><span class="spot-name">消暑必吃：</span> 找家大碗公冰店享受水果剉冰，或挑戰南部特有的「薑汁甘草蕃茄切盤」。</li>
+            </ul>
+        </div>
+
+        <div class="station-card">
+            <div class="station-header">
+                <div class="station-title">📍 第三站：16:30 – 18:00 【西子灣大船入港 ➔ 黃金落日】</div>
+            </div>
+            <div class="transport-badge">🚗 交通方式：從旗津搭渡輪返回鼓山輪渡站，在碼頭借 YouBike 沿濱海單車道騎乘</div>
+            <ul class="spots-list">
+                <li><span class="spot-name">西子灣觀海防波堤 / 英國領事館山腳下：</span> 這裡是欣賞高雄八景之一「西子灣夕陽」的絕佳卡位點。假日的落日時間大約在傍晚 6 點半左右，看著夕陽逐漸沉入海平面，大船緩緩駛入高雄港，非常壯觀。</li>
+            </ul>
+        </div>
+
+        <div class="station-card">
+            <div class="station-header">
+                <div class="station-title">📍 第四站：18:00 – 19:30 【備用/彈性：駁二藝術特區夜間漫步】</div>
+            </div>
+            <div class="transport-badge">🚗 交通方式：騎乘 YouBike 順著舊鐵道改建的臨海單車道，一路愜意地吹著海風騎向駁二藝術特區</div>
+            <ul class="spots-list">
+                <li><span class="spot-name">駁二大勇 / 大義倉庫群：</span> 晚上的駁二少了白天的炙熱，點燈後的倉庫群與夜間裝置藝術（如大義倉庫的紅色鞦韆與磚牆燈光）呈現出完全不同的迷人設計感，非常適合單車漫遊與散步。</li>
+            </ul>
+        </div>
+
+        <div class="station-card">
+            <div class="station-header">
+                <div class="station-title">📍 第五站：19:30 – 21:00 【味蕾饗宴 ➔ 美麗島終點站】</div>
+            </div>
+            <div class="transport-badge">🚗 交通方式：於駁二還車後，由捷運鹽埕埔站搭乘捷運橘線直達美麗島站</div>
+            <ul class="spots-list">
+                <li><span class="spot-name">六合夜市：</span> 美麗島站出站即達。在經過一下午的充實行程後，用鹽蒸蝦、海產粥、鐵板燒或來一杯濃郁的木瓜牛奶，作為最完美的晚餐與句點。</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Kaohsiung Harbor Day Trip © 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
